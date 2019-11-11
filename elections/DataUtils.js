@@ -98,9 +98,8 @@ export function getAggregateStats(results, mapFieldPrefix) {
         totalPolled += summary['polled'];
 
         if (pdName !== 'Postal Votes')  {
-          totalElectors += summary['electors'];  
+          totalElectors += summary['electors'];
         }
-
 
         return [
         // reduce fields
@@ -262,7 +261,10 @@ export function aggregateByED(resultList) {
               } else {
                 aggrSummary = Object.entries(result['summary']).reduce(
                     function(aggrSummary, [key, value]) {
-                      aggrSummary[key] += value;
+                      const pdName = result['pd_name'];
+                      if (pdName !== 'Postal Votes' || key !== 'electors') {
+                        aggrSummary[key] += value;
+                      }
                       return aggrSummary;
                     },
                     aggrSummary,
