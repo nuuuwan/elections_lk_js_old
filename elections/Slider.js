@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 
 import {formatTimestamp} from './DataUtils.js';
-import {TOTAL_RESULT_COUNT} from './Constants.js';
 
 /**
  * Displays a Slider
@@ -16,7 +15,7 @@ export default class Slider extends Component {
     }.bind(this);
 
     const label = this.props.resultsCount + '/' +
-      TOTAL_RESULT_COUNT + ' results as of ' +
+      this.props.maxResultsCount + ' results as of ' +
       formatTimestamp(this.props.currentTimestamp);
 
     return (

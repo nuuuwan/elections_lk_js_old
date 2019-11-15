@@ -102,11 +102,13 @@ export default class HomePage extends Component {
     if (!this.state.resultList) {
       return 'Data loading...';
     }
+    const maxResultsCount = this.state.resultList.length;
     const resultList = filterByTimestamp(
         this.state.resultList,
         this.state.currentTimestamp,
     );
     const resultsCount = resultList.length;
+
 
     const onUpdateSelectedYear = function(year) {
       this.getAndSetData(year);
@@ -148,6 +150,7 @@ export default class HomePage extends Component {
           <Slider
             onChange={onChange}
             resultsCount={resultsCount}
+            maxResultsCount={maxResultsCount}
             minTimestamp={this.state.minTimestamp}
             maxTimestamp={this.state.maxTimestamp}
             currentTimestamp={this.state.currentTimestamp}
