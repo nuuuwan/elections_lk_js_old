@@ -89,7 +89,7 @@ export function getAggregateStats(results, mapFieldPrefix) {
         totalPolled,
         totalElectors,
       ], result) {
-        const pdName = result['pd_name']
+        const pdName = result['pd_name'];
         const summary = result['summary'];
         const valid = summary['valid'];
 
@@ -97,7 +97,7 @@ export function getAggregateStats(results, mapFieldPrefix) {
         totalRejected += summary['rejected'];
         totalPolled += summary['polled'];
 
-        if (pdName !== 'Postal Votes')  {
+        if (pdName !== 'Postal Votes') {
           totalElectors += summary['electors'];
         }
 
